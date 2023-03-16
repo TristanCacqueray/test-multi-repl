@@ -1,0 +1,28 @@
+cabal-version:      3.4
+name:               tmt
+version:            0.1.0.0
+license:            MIT
+license-file:       LICENSE
+author:             Tristan Cacqueray
+maintainer:         tdecacqu@redhat.com
+build-type:         Simple
+
+common warnings
+    ghc-options: -Wall
+
+library
+    import:           warnings
+    exposed-modules:  MyLib
+    build-depends:    base ^>=4.18.0.0
+    hs-source-dirs:   src
+    default-language: GHC2021
+
+test-suite tmt-test
+    import:           warnings
+    default-language: GHC2021
+    type:             exitcode-stdio-1.0
+    hs-source-dirs:   test
+    main-is:          Main.hs
+    build-depends:
+        base ^>=4.18.0.0,
+        tmt
